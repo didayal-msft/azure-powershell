@@ -110,8 +110,14 @@ function Measure-CommandName {
                     $name = $($CommandParameterPair[$i].CommandName)
                     $textInfo = (Get-Culture).TextInfo
                     $CorrectName = $textInfo.ToTitleCase(($name -split "-")[0])
-                    $CorrectName += "-Az"
-                    $CorrectName += $textInfo.ToTitleCase(($name -split "Az")[1])
+                    if($name -match "Az"){
+                        $CorrectName += "-Az"
+                        $CorrectName += $textInfo.ToTitleCase(($name -split "Az")[1])
+                    }
+                    else{
+                        $CorrectName += "-"
+                        $CorrectName += $textInfo.ToTitleCase(($name -split "-")[1])
+                    }
                     $Remediation = "Check the Capitalization Conventions. Suggest format: $CorrectName"
                     $Severity = "Warning"
                 }
