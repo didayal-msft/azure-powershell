@@ -123,7 +123,7 @@ function Measure-CommandName {
                 }
                 $ModuleCmdletExNum = $($CommandParameterPair[$i].ModuleCmdletExNum)
                 $Result = [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                    Message = "$ModuleCmdletExNum-@$Message@$Remediation";
+                    Message = "$ModuleCmdletExNum-#@#$Message#@#$Remediation";
                     Extent = $Asts[$i].Extent;
                     RuleName = $RuleName;
                     Severity = $Severity
