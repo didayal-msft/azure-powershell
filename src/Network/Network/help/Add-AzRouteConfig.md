@@ -28,6 +28,7 @@ The **Add-AzRouteConfig** cmdlet adds a route to an Azure route table.
 ```powershell
 $RouteTable = Get-AzRouteTable -ResourceGroupName "ResourceGroup11" -Name "RouteTable01"
 Add-AzRouteConfig -Name "Route13" -AddressPrefix 10.3.0.0/16 -NextHopType "VnetLocal" -RouteTable $RouteTable
+Set-AzRouteTable -RouteTable $RouteTable
 ```
 
 The first command gets a route table named RouteTable01 by using the Get-AzRouteTable cmdlet.
@@ -91,6 +92,7 @@ The current cmdlet adds the route named Route02, and then passes the result to t
 ```powershell
 $RouteTable = Get-AzRouteTable -ResourceGroupName "ResourceGroup11" -Name "RouteTable01"
 Add-AzRouteConfig -Name "Route13" -AddressPrefix "AppService" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.2.4" -RouteTable $RouteTable
+Set-AzRouteTable -RouteTable $RouteTable
 ```
 
 The first command gets a route table named RouteTable01 by using the Get-AzRouteTable cmdlet.
